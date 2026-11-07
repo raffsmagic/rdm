@@ -1,0 +1,11 @@
+$ RDM_TRACE=1 cargo run -p rdm --example choose
+| 3 requests, ended by final
+| 1. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.'
+|    category: 'Animals & Pet Supplies' (p = 0.95) -> 'Cat Window Perches'
+|   2. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|      category: 'Cat Supplies' (p = 0.95) -> 'Cat Window Perches'
+|     3. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|        category: 'Cat Window Perches' (p = 0.95) -> 'Cat Window Perches'
+first choice: Animals & Pet Supplies
+leaf:         Cat Window Perches
+3 requests. The walk is greedy: one wrong choice near the top is not recovered from.

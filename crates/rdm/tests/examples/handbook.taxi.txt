@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example handbook -- --question=3
+decision model: jev-stand-in | language model: lm-stand-in
+
+When can I take a taxi?
+-> ['When travelling with equipment, or after 22:00.']
+9 requests to the decision model, each a yes or a no

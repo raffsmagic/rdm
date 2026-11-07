@@ -1,0 +1,9 @@
+$ cargo run -p rdm --example outline -- --question 2
+explored: Handbook
+explored: Expenses
+explored: Travel
+explored: Hotels
+
+What is the nightly hotel limit in London?
+-> ['The nightly limit for accommodation is 180 euros in most cities and 260 euros in London, Zurich and New York. Breakfast is included in that limit.']
+15 requests; the largest shows 357 characters of a 2555 character handbook

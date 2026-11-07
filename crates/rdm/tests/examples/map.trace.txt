@@ -1,0 +1,47 @@
+$ RDM_TRACE=1 cargo run -p rdm --example map
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Lock the front door.)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (lock: refused, the door is open)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked'} (door: now closed)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'locked'} (lock: now locked)
+| 4 requests, ended by final
+| 1. task: 'Lock the front door.' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: ''
+|    next: 'lock locked' (p = 0.95) -> 'lock: refused, the door is open'
+| 2. task: 'Lock the front door.' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: 'lock: refused, the door is open' (turn 2)
+|    next: 'door closed' (p = 0.95) -> 'door: now closed'
+| 3. task: 'Lock the front door.' | house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked'} | observation: 'door: now closed' (turn 3)
+|    next: 'lock locked' (p = 0.95) -> 'lock: now locked'
+| 4. task: 'Lock the front door.' | house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'locked'} | observation: 'lock: now locked' (turn 4)
+|    next: 'finish' (p = 0.95)
+Lock the front door. -> ['lock locked', 'door closed', 'lock locked', 'finish']
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Good night: everything off, and lock up.)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (tv: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} (lights: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} (lock: refused, the door is open)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'unlocked'} (door: now closed)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'} (lock: now locked)
+| 6 requests, ended by final
+| 1. task: 'Good night: everything off, and lock up.' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: ''
+|    next: 'tv off' (p = 0.95) -> 'tv: now off'
+| 2. task: 'Good night: everything off, and lock up.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: 'tv: now off' (turn 2)
+|    next: 'lights off' (p = 0.95) -> 'lights: now off'
+| 3. task: 'Good night: everything off, and lock up.' | house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} | observation: 'lights: now off' (turn 3)
+|    next: 'lock locked' (p = 0.95) -> 'lock: refused, the door is open'
+| 4. task: 'Good night: everything off, and lock up.' | house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} | observation: 'lock: refused, the door is open' (turn 4)
+|    next: 'door closed' (p = 0.95) -> 'door: now closed'
+| 5. task: 'Good night: everything off, and lock up.' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'unlocked'} | observation: 'door: now closed' (turn 5)
+|    next: 'lock locked' (p = 0.95) -> 'lock: now locked'
+| 6. task: 'Good night: everything off, and lock up.' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'} | observation: 'lock: now locked' (turn 6)
+|    next: 'finish' (p = 0.95)
+Good night: everything off, and lock up. -> ['tv off', 'lights off', 'door closed', 'lock locked']
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Night!)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (tv: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} (lights: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'unlocked'} (door: now closed)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'} (lock: now locked)
+| 2 requests, ended by final
+| 1. task: 'Night!' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: ''
+|    next: 'good night' (p = 0.95) -> ['tv: now off', 'lights: now off', 'door: now closed', 'lock: now locked… (4 items)
+| 2. task: 'Night!' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'} | observation: '["tv: now off", "lights: now off", "door: now closed", "lock: now locke… (74 characters) (turn 2)
+|    next: 'finish' (p = 0.95)
+Night! -> ['good night', 'finish']
+{'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'}

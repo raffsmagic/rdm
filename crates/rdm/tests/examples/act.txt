@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example act
+{'switch': 'tv: now on'}

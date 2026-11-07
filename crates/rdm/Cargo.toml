@@ -1,0 +1,150 @@
+[package]
+name = "rdm"
+description = "Recursive Decision Models: a decision model decides, and what it decides selects what makes the next state."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+keywords = ["decision-model", "rlm", "agents", "llm", "recursion"]
+readme = "../../README.md"
+
+[features]
+default = ["filter", "fit", "near", "reanchor", "lm", "repl", "rlm"]
+# Each helper is a module of its own beside the core. With none of them the crate is the core alone.
+# Sorts what a decision model rated, likeliest first, and keeps the likeliest.
+filter = []
+# Cuts down what one request cannot hold.
+fit = []
+# The map with dimensions.
+near = []
+# The numbers each output is decided with, fitted to what it should have decided.
+reanchor = []
+# Language models, as tools and as decision models.
+lm = ["dep:lm15", "dep:wasip2", "dep:futures-core"]
+# A sandbox a decision model and a writer share.
+repl = ["dep:monty", "dep:monty-types", "dep:ruff_python_parser", "dep:ruff_python_ast", "dep:getrandom"]
+# A language model in a loop over the sandbox: it writes, runs what it wrote, and submits.
+rlm = ["lm", "repl"]
+
+[dependencies]
+systemone.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+indexmap.workspace = true
+sha2.workspace = true
+# The sandbox written code runs in, and the types it is driven with.
+monty = { version = "=1.0.0", optional = true }
+monty-types = { version = "=1.0.0", optional = true }
+# The parser Monty is itself built on, at the version it pins: to check a source is one
+# function before anything is run. Already in the build through monty.
+ruff_python_parser = { version = "=0.0.14", optional = true }
+ruff_python_ast = { version = "=0.0.14", optional = true }
+# The randomness written code draws from unless the REPL is given another source. Already in
+# the build through monty, which drew from it itself.
+getrandom = { version = "0.3", optional = true }
+
+# A streamed reply is read event by event: the trait lm15's streams are, already in the build
+# through lm15.
+futures-core = { version = "0.3", optional = true }
+
+# Language models: one request and response model for every provider. Pinned exactly, since a
+# bare "1.0.0-rc.4" would float to the next release candidate. `blocking` because the core is
+# synchronous: it is lm15's own runtime thread behind the same names.
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+lm15 = { version = "=1.0.0-rc.4", features = ["blocking"], optional = true }
+
+# In WebAssembly lm15 is the wire alone: it writes the request and reads the reply, and the
+# host carries them, as a transport given to the router. No runtime, no TLS, no C.
+[target.'cfg(target_family = "wasm")'.dependencies]
+lm15 = { version = "=1.0.0-rc.4", default-features = false, optional = true }
+
+# A module built for WASI 0.2 has the host's HTTP, `wasi:http`, and is given that transport.
+[target.'cfg(all(target_os = "wasi", target_env = "p2"))'.dependencies]
+wasip2 = { version = "1", optional = true }
+
+[dev-dependencies]
+# The decision models the examples ask: hosted Jev, OpenRouter, a server on this machine, a
+# gateway among them. The library itself does not depend on it.
+one-system.workspace = true
+
+# The examples: every notebook cell of the site, a file each in examples/ (examples/README.md).
+# They are listed here only to say what they need: the helpers, which a build of the core alone
+# (`--no-default-features`) leaves out, and with them the examples. Every name of the table is
+# here already, so porting one edits no line of this file. An example of another name needs
+# its own three lines.
+[[example]]
+name = "triage"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "act"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "zen"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "outline"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "handbook"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "choose"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "filter"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "hierarchy"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "fit"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "map"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "near"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "dimensions"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "route"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "repl"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "write_map"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "starter"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+[[example]]
+name = "home"
+required-features = ["filter", "fit", "near", "lm", "repl"]
+
+# No cell of the site: the writer of `repl` as an RLM.
+[[example]]
+name = "rlm"
+required-features = ["filter", "fit", "near", "lm", "repl", "rlm"]

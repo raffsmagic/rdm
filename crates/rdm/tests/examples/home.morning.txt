@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home -- --task 2
+good morning: good morning: done (entry alarm: already off; entry lock: already unlocked; kitchen lights: already on; kitchen coffee maker: now on)
+finish

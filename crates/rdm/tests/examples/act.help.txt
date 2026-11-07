@@ -1,0 +1,23 @@
+$ cargo run -p rdm --example act -- --help
+act: One request
+One decision points at a tool and chooses its arguments.
+
+--task   Ask the house
+    1  Turn the TV on.
+    2  Switch the lights off.
+    3  Please shut the door.
+    4  What a lovely evening.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--house   Where the house starts
+    JSON; it starts as {"tv": "off", "lights": "on", "door": "open", "lock": "unlocked"}
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example act -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

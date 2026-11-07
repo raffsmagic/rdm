@@ -1,0 +1,7 @@
+$ cargo run -p rdm --example hierarchy -- "A cast-iron frying pan."
+decision model: jev-stand-in
+12378 categories
+All products -> ['Uncategorized']
+
+1 leaf reached
+Uncategorized

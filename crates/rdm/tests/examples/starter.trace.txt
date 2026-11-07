@@ -1,0 +1,42 @@
+$ RDM_TRACE=1 cargo run -p rdm --example starter
+a map made by ~typesafe/jev-latest and typesafe/jev-router
+  good_night: Run the good night routine: turn off TV and lights, close and lock the door, set heat to 18.
+  movie_time: Turns on the TV and turns off the lights for movie time.
+  good_morning: Run the good morning routine: lights on, unlock door, heat to 21.
+
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (Let's watch a film.)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (tv: now on)
+| house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (lights: now off)
+| 2 requests, ended by final
+| 1. task: "Let's watch a film." | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat':… | observation: ''
+|    next: 'movie_time' (p = 0.95) -> 'Turned the TV on and the lights off.'
+| 2. task: "Let's watch a film." | house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat'… | observation: 'Turned the TV on and the lights off.' (turn 2)
+|    next: 'finish' (p = 0.95)
+Let's watch a film. -> ['movie_time', 'finish']
+| house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (We are off to bed.)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (tv: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (lights: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'unlocked', 'heat': 21} (door: now closed)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 21} (lock: now locked)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 20} (heat: now 20)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 19} (heat: now 19)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (heat: now 18)
+| 2 requests, ended by final
+| 1. task: 'We are off to bed.' | house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat'… | observation: ''
+|    next: 'good_night' (p = 0.95) -> 'Turned off the TV and lights, closed and locked the door, and set the h… (89 characters)
+| 2. task: 'We are off to bed.' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat… | observation: 'Turned off the TV and lights, closed and locked the door, and set the h… (89 characters) (turn 2)
+|    next: 'finish' (p = 0.95)
+We are off to bed. -> ['good_night', 'finish']
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (Morning!)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 18} (lights: now on)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 18} (lock: now unlocked)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 19} (heat: now 19)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 20} (heat: now 20)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 21} (heat: now 21)
+| 2 requests, ended by final
+| 1. task: 'Morning!' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat… | observation: ''
+|    next: 'good_morning' (p = 0.95) -> 'Turned the lights on, unlocked the door, and brought the heat up to 21 … (79 characters)
+| 2. task: 'Morning!' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'hea… | observation: 'Turned the lights on, unlocked the door, and brought the heat up to 21 … (79 characters) (turn 2)
+|    next: 'finish' (p = 0.95)
+Morning! -> ['good_morning', 'finish']
+{'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 21}

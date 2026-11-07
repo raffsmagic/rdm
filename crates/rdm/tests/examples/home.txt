@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home
+good night: good night: done (living room tv: already off; living room fan: now off; living room lights: now off; kitchen oven: now off; kitchen coffee maker: already off; kitchen dishwasher: now off; kitchen lights: now off; bathroom fan: already off; bathroom lights: already off; garage washer: already off; garage dryer: now off; garage lights: now off; garage door: now closed; entry lights: now off; entry door: now closed; entry lock: now locked)
+finish

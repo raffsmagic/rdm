@@ -1,0 +1,8 @@
+$ cargo run -p rdm --example outline
+explored: Handbook
+explored: Working remotely
+explored: Working from abroad
+
+Can I work from another country?
+-> ['Working from another country is limited to 20 working days a year because of tax and social security rules, and needs approval from the people team before travel is booked.']
+9 requests; the largest shows 347 characters of a 2555 character handbook

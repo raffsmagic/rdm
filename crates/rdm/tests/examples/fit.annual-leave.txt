@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example fit -- --question 2
+How many days of annual leave are there?
+stated in the handbook: True (p = 0.93)
+15 requests, none showing more than 900 characters of the 2555

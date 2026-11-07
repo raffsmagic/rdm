@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example act -- --task 3
+{'switch': 'door: now closed'}

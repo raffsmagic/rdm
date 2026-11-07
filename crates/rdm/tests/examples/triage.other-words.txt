@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example triage -- "Please refund my last invoice."
+refund: True (p = 0.93)
+upset:  False (p = 0.04)
+{'refund': 'refund opened with billing'}

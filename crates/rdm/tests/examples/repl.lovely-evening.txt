@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example repl -- "What a lovely evening."
+pointed at: ['finish']
+heat: 21
+written: []

@@ -1,0 +1,24 @@
+$ cargo run -p rdm --example write_map -- --help
+write_map: Making a starter map
+Hosted models write the house's routines once, and the map is saved.
+
+--routines   Routines to have written, one per line
+    Good night: turn the TV and the lights off, close the door and lock it, and bring the heat down to 18 degrees.
+    Movie time: turn the TV on and the lights off.
+    Good morning: turn the lights on, unlock the door, and bring the heat up to 21 degrees.
+    Given once for each line; it starts as these.
+
+--house   Where the house starts
+    JSON; it starts as {"tv": "on", "lights": "on", "door": "open", "lock": "unlocked", "heat": 21}
+
+--to   Where to save the map, where it is not starter_map.json in the temporary directory
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example write_map -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

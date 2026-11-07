@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example handbook -- --question 2
+decision model: jev-stand-in | language model: lm-stand-in
+
+How much can I spend on meals per day?
+-> ['Up to 45 euros per day when travelling.']
+9 requests to the decision model, each a yes or a no

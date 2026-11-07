@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example triage
+refund: True (p = 0.93)
+upset:  True (p = 0.93)
+{'refund': 'refund opened with billing'}

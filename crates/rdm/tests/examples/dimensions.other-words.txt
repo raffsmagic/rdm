@@ -1,0 +1,17 @@
+$ cargo run -p rdm --example dimensions -- "Thanks: the new export is great."
+Thanks: the new export is great. -> ['finish']
+
+money 0.04 access 0.04 fault 0.04 buying 0.04 | Thanks
+money 0.93 access 0.04 fault 0.04 buying 0.04 | refund
+money 0.93 access 0.04 fault 0.04 buying 0.04 | send invoice
+money 0.04 access 0.93 fault 0.04 buying 0.04 | reset password
+money 0.04 access 0.93 fault 0.04 buying 0.04 | unlock account
+money 0.04 access 0.04 fault 0.93 buying 0.04 | file a bug
+money 0.04 access 0.04 fault 0.80 buying 0.04 | check status page
+money 0.50 access 0.04 fault 0.04 buying 0.93 | quote a plan
+money 0.04 access 0.04 fault 0.04 buying 0.93 | book a demo
+
+nearest to {'money': 1.0, 'access': 0.0, 'fault': 0.0, 'buying': 0.5}
+  0.91 refund
+  0.91 send invoice
+  0.82 quote a plan

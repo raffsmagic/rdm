@@ -1,0 +1,31 @@
+$ cargo run -p rdm --example map -- --help
+map: The map
+The model points at one step at a time. What worked is kept as a new name on the map.
+
+--first   First, ask for
+    1  Lock the front door.
+    2  Turn everything off.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--routine   Then a routine to keep
+    1  Good night: everything off, and lock up.
+    2  Movie night: TV on, lights off.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--again   Then ask for it again
+    1  Night!
+    2  Time for bed.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--house   Where the house starts
+    JSON; it starts as {"tv": "on", "lights": "on", "door": "open", "lock": "unlocked"}
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example map -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

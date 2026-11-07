@@ -1,0 +1,18 @@
+[package]
+name = "systemone"
+description = "The System One protocol: a state and typed questions in, decisions with probabilities out."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+keywords = ["decision-model", "system-one", "protocol", "classification"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+indexmap.workspace = true
+sha2.workspace = true

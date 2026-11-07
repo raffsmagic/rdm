@@ -1,0 +1,67 @@
+$ RDM_TRACE=1 cargo run -p rdm --example dimensions -- --email 4
+| 11 requests, ended by final
+| 1. email: 'What does the team plan cost for twelve people?' | observation: ''
+|    next: 'quote a plan' (p = 0.95) -> 'quote a plan: done'
+|   2. email: 'What does the team plan cost for twelve people?'
+|      money: True (p = 0.50)
+|      access: False (p = 0.04)
+|      fault: False (p = 0.04)
+|      buying: True (p = 0.93)
+|   3. email: "refund: Return a charge to the customer's card."
+|      money: True (p = 0.93)
+|      access: False (p = 0.04)
+|      fault: False (p = 0.04)
+|      buying: False (p = 0.04)
+|   4. email: 'send invoice: Send a copy of an invoice or a receipt.'
+|      money: True (p = 0.93)
+|      access: False (p = 0.04)
+|      fault: False (p = 0.04)
+|      buying: False (p = 0.04)
+|   5. email: 'reset password: Send a link to reset the password of an account.'
+|      money: False (p = 0.04)
+|      access: True (p = 0.93)
+|      fault: False (p = 0.04)
+|      buying: False (p = 0.04)
+|   6. email: 'unlock account: Unlock an account that is locked out after failed login… (73 characters)
+|      money: False (p = 0.04)
+|      access: True (p = 0.93)
+|      fault: False (p = 0.04)
+|      buying: False (p = 0.04)
+|   7. email: 'file a bug: Report a fault in the app to the engineers.'
+|      money: False (p = 0.04)
+|      access: False (p = 0.04)
+|      fault: True (p = 0.93)
+|      buying: False (p = 0.04)
+|   8. email: 'check status page: Look up whether there is an outage right now.'
+|      money: False (p = 0.04)
+|      access: False (p = 0.04)
+|      fault: True (p = 0.80)
+|      buying: False (p = 0.04)
+|   9. email: 'quote a plan: Send the prices of the plans for a team.'
+|      money: True (p = 0.50)
+|      access: False (p = 0.04)
+|      fault: False (p = 0.04)
+|      buying: True (p = 0.93)
+|   10. email: 'book a demo: Offer a call with sales to see the product.'
+|       money: False (p = 0.04)
+|       access: False (p = 0.04)
+|       fault: False (p = 0.04)
+|       buying: True (p = 0.93)
+| 11. email: 'What does the team plan cost for twelve people?' | observation: 'quote a plan: done' (turn 2)
+|     next: 'finish' (p = 0.95)
+What does the team plan cost for twelve people? -> ['quote a plan', 'finish']
+
+money 0.50 access 0.04 fault 0.04 buying 0.93 | What does the team plan cost for twelve peop
+money 0.93 access 0.04 fault 0.04 buying 0.04 | refund
+money 0.93 access 0.04 fault 0.04 buying 0.04 | send invoice
+money 0.04 access 0.93 fault 0.04 buying 0.04 | reset password
+money 0.04 access 0.93 fault 0.04 buying 0.04 | unlock account
+money 0.04 access 0.04 fault 0.93 buying 0.04 | file a bug
+money 0.04 access 0.04 fault 0.80 buying 0.04 | check status page
+money 0.50 access 0.04 fault 0.04 buying 0.93 | quote a plan
+money 0.04 access 0.04 fault 0.04 buying 0.93 | book a demo
+
+nearest to {'money': 1.0, 'access': 0.0, 'fault': 0.0, 'buying': 0.5}
+  0.91 refund
+  0.91 send invoice
+  0.82 quote a plan

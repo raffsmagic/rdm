@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example filter
+leaves reached: ['Cat Window Perches', 'Cat Beds', 'Dog Beds', 'Dog Toys', 'Shelves', 'Beds']
+5 requests

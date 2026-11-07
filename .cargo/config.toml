@@ -1,0 +1,9 @@
+# What runs a test or an example built as WebAssembly: `cargo test --target wasm32-wasip1`,
+# `cargo run --target wasm32-wasip2 -p rdm --example zen`. The program is given the
+# directory it is run in and the environment, and no more of the machine. One built for
+# WASI 0.2 is given the host's HTTP as well, which is the network a client asks through there.
+[target.wasm32-wasip1]
+runner = "wasmtime run --dir=. -S inherit-env"
+
+[target.wasm32-wasip2]
+runner = "wasmtime run -S http --dir=. -S inherit-env"

@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home -- --task 6
+movie time: movie time: done (living room tv: now on; living room lights: now off)
+finish

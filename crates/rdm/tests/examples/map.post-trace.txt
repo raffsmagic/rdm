@@ -1,0 +1,25 @@
+$ RDM_POST=1 RDM_TRACE=1 cargo run -p rdm --example map
+| house: {'tv': 'off', 'lights': 'on'} (Movie time.)
+| 1 request, ended by final
+| 1. request: 'Movie time.' | house: {'tv': 'off', 'lights': 'on'}
+|    next: 'tv on' (p = 0.95)
+pointed at: tv on
+| house: {'tv': 'on', 'lights': 'on'} (tv: now on)
+| 1 request, ended by final
+| 1. request: 'Movie time.' | house: {'tv': 'on', 'lights': 'on'}
+|    next: 'lights off' (p = 0.95)
+pointed at: lights off
+| house: {'tv': 'on', 'lights': 'off'} (lights: now off)
+| 1 request, ended by final
+| 1. request: 'Movie time.' | house: {'tv': 'on', 'lights': 'off'}
+|    next: 'stop' (p = 0.95)
+| house: {'tv': 'off', 'lights': 'on'} (Let's watch a film.)
+| 1 request, ended by final
+| 1. request: "Let's watch a film." | house: {'tv': 'off', 'lights': 'on'}
+|    next: 'movie time' (p = 0.95)
+pointed at: movie time
+| house: {'tv': 'on', 'lights': 'on'} (tv: now on)
+| house: {'tv': 'on', 'lights': 'off'} (lights: now off)
+| 1 request, ended by final
+| 1. request: "Let's watch a film." | house: {'tv': 'on', 'lights': 'off'}
+|    next: 'stop' (p = 0.95)

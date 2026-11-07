@@ -1,0 +1,4 @@
+$ RDM_POST=1 cargo run -p rdm --example map
+pointed at: tv on
+pointed at: lights off
+pointed at: movie time

@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example choose
+first choice: Animals & Pet Supplies
+leaf:         Cat Window Perches
+3 requests. The walk is greedy: one wrong choice near the top is not recovered from.

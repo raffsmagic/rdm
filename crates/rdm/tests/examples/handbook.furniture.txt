@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example handbook -- 4
+decision model: jev-stand-in | language model: lm-stand-in
+
+How often can I claim home office furniture?
+-> ['Once every two years, up to 400 euros.']
+9 requests to the decision model, each a yes or a no

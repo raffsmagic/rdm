@@ -1,0 +1,8 @@
+$ cargo run -p rdm --example outline -- --question=3
+explored: Handbook
+explored: Security
+explored: Reporting an incident
+
+Who do I tell about a lost laptop?
+-> ['Report a lost device or a suspected breach to the security desk within one hour, at any time of day. Do not attempt to investigate it yourself.']
+10 requests; the largest shows 349 characters of a 2555 character handbook

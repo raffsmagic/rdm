@@ -1,0 +1,36 @@
+$ RDM_TRACE=1 cargo run -p rdm --example fit
+| text: 2555 characters, 71 lines
+| 15 requests, ended by final
+| 1. text: 'This handbook is synthetic. It exists to give the example something to … (653 characters) | question: 'What is the nightly hotel limit in London?'
+|    look: True (p = 0.93)
+|   2. question: 'What is the nightly hotel limit in London?' | text: 'This handbook is synthetic. It exists to give the example something to … (182 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   3. question: 'What is the nightly hotel limit in London?' | text: 'Full-time staff receive 25 days of annual leave each calendar year. Up … (166 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   4. question: 'What is the nightly hotel limit in London?' | text: 'Leave of more than ten consecutive working days needs approval from a d… (128 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   5. question: 'What is the nightly hotel limit in London?' | text: "Tell your manager before 9:30 on the first day you are unwell. A doctor… (155 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   6. question: 'What is the nightly hotel limit in London?' | text: 'Primary caregivers receive 26 weeks at full pay. Secondary caregivers r… (234 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   7. question: 'What is the nightly hotel limit in London?' | text: 'Book travel through the company portal so that it is covered by the gro… (212 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   8. question: 'What is the nightly hotel limit in London?' | text: 'The nightly limit for accommodation is 180 euros in most cities and 260… (170 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: True (p = 0.93)
+|   9. question: 'What is the nightly hotel limit in London?' | text: 'Use public transport where it is practical. Taxis are reimbursed when t… (227 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|      needed: False (p = 0.04)
+|   10. question: 'What is the nightly hotel limit in London?' | text: 'Each employee may claim up to 400 euros every two years for home office… (211 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+|   11. question: 'What is the nightly hotel limit in London?' | text: 'Passwords are at least 14 characters and are stored in the company pass… (173 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+|   12. question: 'What is the nightly hotel limit in London?' | text: 'Laptops lock after five minutes of inactivity and have disk encryption … (185 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+|   13. question: 'What is the nightly hotel limit in London?' | text: 'Report a lost device or a suspected breach to the security desk within … (181 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+|   14. question: 'What is the nightly hotel limit in London?' | text: 'Staff may work remotely up to three days a week after their probation p… (158 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+|   15. question: 'What is the nightly hotel limit in London?' | text: 'Working from another country is limited to 20 working days a year becau… (173 characters) | questions: {'look': 'Is the answer to `inputs.question` stated in `inputs.text`?'}
+|       needed: False (p = 0.04)
+What is the nightly hotel limit in London?
+stated in the handbook: True (p = 0.93)
+15 requests, none showing more than 900 characters of the 2555

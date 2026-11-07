@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example home -- "What a lovely evening."
+finish

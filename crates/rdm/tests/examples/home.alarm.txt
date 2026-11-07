@@ -1,0 +1,10 @@
+$ cargo run -p rdm --example home -- --task 11
+entry: entry alarm: refused while the front door is not locked; entry lock: refused while the door is open; entry door: now closed
+entry: entry alarm: refused while the front door is not locked; entry lock: now locked; entry alarm: refused while the garage door is open
+garage: garage door: now closed
+entry: entry alarm: refused while the oven is on
+kitchen: kitchen oven: now off
+entry: entry alarm: refused while the bedroom window is open
+bedroom: bedroom window: now closed
+entry: entry alarm: now armed
+finish

@@ -1,0 +1,47 @@
+[package]
+name = "one-system"
+description = "A gateway for decision models: local and hosted System One servers behind one interface."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+keywords = ["decision-model", "system-one", "gateway", "router"]
+readme = "README.md"
+
+[features]
+default = ["server"]
+# The HTTP surface over a gateway, and the `one-system` binary.
+server = ["dep:tiny_http"]
+
+[dependencies]
+systemone.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+indexmap.workspace = true
+sha2.workspace = true
+
+# The network, where there is an operating system to open a connection on.
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+# Blocking HTTP, TLS by rustls. No gzip, no cookies, no JSON layer of its own.
+ureq = { version = "3", default-features = false, features = ["rustls"] }
+tiny_http = { version = "0.12", optional = true }
+
+# In a WebAssembly module built for WASI 0.2 the network is the host's, through `wasi:http`.
+# Any other module is given its transport by whatever runs it, and has no dependency for one.
+[target.'cfg(all(target_os = "wasi", target_env = "p2"))'.dependencies]
+wasip2 = "1"
+
+# The servers the client's tests talk to, on 127.0.0.1.
+[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+tiny_http = "0.12"
+
+[[bin]]
+name = "one-system"
+path = "src/bin/one-system.rs"
+required-features = ["server"]
+# The library's documentation is the crate's; the binary's would be written over it.
+doc = false

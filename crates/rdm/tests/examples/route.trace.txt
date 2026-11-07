@@ -1,0 +1,31 @@
+$ RDM_TRACE=1 cargo run -p rdm --example route
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Turn the TV on, switch the lights off, and tell me whether it will rain.)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (tv: now on)
+| house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} (lights: now off)
+| 6 requests, ended by final
+| 1. task: 'Turn the TV on, switch the lights off, and tell me whether it will rain… (72 characters) | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'}
+|    split: True (p = 0.93) -> [{'split': {'confidence': 0.92, 'value': False, 'probability': 0.04}, 'a… (3 items)
+|    act: False (p = 0.04)
+|    chat: False (p = 0.04)
+|   2. task: 'Turn the TV on.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (asked by split)
+|      split: False (p = 0.04)
+|      act: True (p = 0.93) -> {'switch': {'confidence': 0.8600000000000001, 'value': True, 'probabilit…
+|      chat: False (p = 0.04)
+|     3. task: 'Turn the TV on.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (asked by act)
+|        switch: True (p = 0.93) -> 'tv: now on'
+|        device: 'tv' (p = 0.95)
+|        to: 'on' (p = 0.95)
+|   4. task: 'Switch the lights off.' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (asked by split)
+|      split: False (p = 0.04)
+|      act: True (p = 0.93) -> {'switch': {'confidence': 0.8600000000000001, 'value': True, 'probabilit…
+|      chat: False (p = 0.04)
+|     5. task: 'Switch the lights off.' | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (asked by act)
+|        switch: True (p = 0.93) -> 'lights: now off'
+|        device: 'lights' (p = 0.95)
+|        to: 'off' (p = 0.95)
+|   6. task: 'Tell me whether it will rain.' | house: {'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'} (asked by split)
+|      split: False (p = 0.04)
+|      act: False (p = 0.04)
+|      chat: True (p = 0.93) -> {'reply': 'I cannot see the weather from here.'}
+{'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'}
+final

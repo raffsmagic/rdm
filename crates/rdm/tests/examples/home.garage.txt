@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home -- --task 4
+garage: garage door: now closed
+finish

@@ -1,0 +1,12 @@
+$ cargo run -p rdm --example hierarchy -- 5
+decision model: jev-stand-in
+12378 categories
+All products -> ['Electronics']
+Electronics -> ['Audio']
+Audio -> ['Audio Components']
+Audio Components -> ['Headphones & Headsets']
+Headphones & Headsets -> ['Headphones']
+Headphones -> ['Over-Ear Headphones']
+
+1 leaf reached
+Electronics > Audio > Audio Components > Headphones & Headsets > Headphones > Over-Ear Headphones

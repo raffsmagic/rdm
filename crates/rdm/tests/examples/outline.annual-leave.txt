@@ -1,0 +1,8 @@
+$ cargo run -p rdm --example outline -- 4
+explored: Handbook
+explored: Time off
+explored: Annual leave
+
+How many days of annual leave are there?
+-> ['Full-time staff receive 25 days of annual leave each calendar year. Up to five unused days carry over into the following year and must be taken by the end of March.']
+12 requests; the largest shows 355 characters of a 2555 character handbook

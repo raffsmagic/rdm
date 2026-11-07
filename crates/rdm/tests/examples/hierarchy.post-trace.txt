@@ -1,0 +1,32 @@
+$ RDM_POST=1 RDM_TRACE=1 cargo run -p rdm --example hierarchy -- --listing 4
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies' (p = 0.95)
+All products -> ['Animals & Pet Supplies']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies' (p = 0.95)
+Animals & Pet Supplies -> ['Pet Supplies']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Cat Supplies' (p = 0.60)
+Pet Supplies -> ['Cat Supplies', 'Pet Beds']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Cat Supplies > Cat Furniture' (p = 0.95)
+Cat Supplies -> ['Cat Furniture']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Cat Supplies > Cat Furniture > Cat Window Beds & Perches' (p = 0.95)
+Cat Furniture -> ['Cat Window Beds & Perches']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Pet Beds > Hammocks' (p = 0.25)
+Pet Beds -> ['Hammocks', 'Pet Cots', 'Pillow Beds', 'Radiator Beds']
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Pet Beds > Hammocks' (p = 0.25)
+| 1 request, ended by final
+| 1. listing: 'Furniture listing: a wall-mounted window shelf bed. This padded floatin… (149 characters)
+|    category: 'Animals & Pet Supplies > Pet Supplies > Cat Supplies > Cat Furniture > Cat Window Beds & Perches' (p = 0.60)
+Animals & Pet Supplies > Pet Supplies > Cat Supplies > Cat Furniture > Cat Window Beds & Perches

@@ -1,0 +1,14 @@
+$ RDM_TRACE=1 cargo run -p rdm --example filter
+| 5 requests, ended by final
+| 1. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.'
+|    category: 'Animals & Pet Supplies' (p = 0.95) -> ['Cat Window Perches', 'Cat Beds', 'Dog Beds', 'Dog Toys', 'Shelves', 'B… (6 items)
+|   2. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|      category: 'Cat Supplies' (p = 0.95) -> ['Cat Window Perches', 'Cat Beds', 'Dog Beds', 'Dog Toys']
+|     3. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|        category: 'Cat Window Perches' (p = 0.95) -> ['Cat Window Perches', 'Cat Beds']
+|     4. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|        category: 'Dog Beds' (p = 0.95) -> ['Dog Beds', 'Dog Toys']
+|   5. listing: 'A padded shelf that suction-cups to a window, so a cat can sun itself.' (asked by category)
+|      category: 'Shelves' (p = 0.95) -> ['Shelves', 'Beds']
+leaves reached: ['Cat Window Perches', 'Cat Beds', 'Dog Beds', 'Dog Toys', 'Shelves', 'Beds']
+5 requests

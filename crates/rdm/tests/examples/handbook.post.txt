@@ -1,0 +1,3 @@
+$ RDM_POST=1 cargo run -p rdm --example handbook
+['The nightly limit for accommodation is 180 euros in most cities and 260 euros in London, Zurich and New York. Breakfast is included in that limit.']
+15 requests, each a yes or a no

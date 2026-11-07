@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home -- --task 7
+kitchen: kitchen oven: now off
+finish

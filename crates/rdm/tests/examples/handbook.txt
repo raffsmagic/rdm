@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example handbook
+decision model: jev-stand-in | language model: lm-stand-in
+
+What is the nightly hotel limit in London?
+-> ['260 euros a night in London.']
+7 requests to the decision model, each a yes or a no

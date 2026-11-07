@@ -1,0 +1,5 @@
+[tools]
+# The three targets are WebAssembly's: with a system under the module (WASI 0.1 and 0.2), and with none.
+rust = { version = "stable", targets = "wasm32-wasip1,wasm32-wasip2,wasm32-unknown-unknown" }
+# What runs a test or an example built for the first two (.cargo/config.toml).
+wasmtime = "latest"

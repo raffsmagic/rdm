@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example choose -- "A cast-iron frying pan."
+first choice: Kitchen
+leaf:         Cookware
+2 requests. The walk is greedy: one wrong choice near the top is not recovered from.

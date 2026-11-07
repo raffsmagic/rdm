@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example filter -- --listing=3
+leaves reached: ['Kitchen Knives', 'Cookware', 'Cat Beds', 'Cat Toys', 'Dog Beds', 'Dog Toys']
+5 requests

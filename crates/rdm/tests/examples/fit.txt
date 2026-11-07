@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example fit
+What is the nightly hotel limit in London?
+stated in the handbook: True (p = 0.93)
+15 requests, none showing more than 900 characters of the 2555

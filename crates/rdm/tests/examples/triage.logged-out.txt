@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example triage -- --message 2
+refund: False (p = 0.04)
+upset:  False (p = 0.04)
+no answer selected a tool, so nothing ran

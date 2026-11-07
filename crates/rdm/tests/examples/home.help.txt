@@ -1,0 +1,36 @@
+$ cargo run -p rdm --example home -- --help
+home: The house
+Ask it for something. It keeps its state from one request to the next.
+
+--task   Tell the house what to do
+    1  We are off to bed.
+    2  Morning!
+    3  Turn the TV on.
+    4  Close the garage door.
+    5  We are leaving for the weekend.
+    6  Let's watch a film.
+    7  I left the oven on.
+    8  Set the thermostat to 20 degrees.
+    9  Lock the front door.
+    10  It is too hot in here.
+    11  Set the alarm.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--then   Then more requests in turn, each to the house as the last left it: a text, or the number of one above
+    Given once for each line; it starts as these.
+
+--house   Where the house starts
+    JSON; it starts as {"entry": {"lights": "on", "door": "open", "lock": "unlocked", "alarm": "off"}, "living room": {"lights": "on", "tv": "off", "fan": "on", "window": "closed"}, "kitchen": {"lights": "on", "oven": "on", "coffee maker": "off", "dishwasher": "on"}, "bedroom": {"lights": "off", "lamp": "on", "window": "open"}, "bathroom": {"lights": "off", "fan": "off"}, "garage": {"lights": "on", "door": "open", "doorway": "clear", "washer": "off", "dryer": "on"}, "thermostat": {"mode": "off", "target": 22, "temp": 28, "outside": 28}}
+
+--routines   The routines it knows
+    JSON; it starts as {"good night": {"about": "Going to bed: the rest of the house off, the doors shut, and the front door locked.", "steps": ["living room: tv off", "living room: fan off", "living room: lights off", "kitchen: oven off", "kitchen: coffee maker off", "kitchen: dishwasher off", "kitchen: lights off", "bathroom: fan off", "bathroom: lights off", "garage: washer off", "garage: dryer off", "garage: lights off", "garage: door closed", "entry: lights off", "entry: door closed", "entry: lock locked"]}, "good morning": {"about": "Getting up: the front door unlocked, the kitchen lights and the coffee on.", "steps": ["entry: alarm off", "entry: lock unlocked", "kitchen: lights on", "kitchen: coffee maker on"]}, "movie time": {"about": "Watching a film: the living room dimmed and the film on.", "steps": ["living room: tv on", "living room: lights off"]}, "leaving": {"about": "Going out and leaving the house empty: everything off and shut, locked, and the alarm armed.", "steps": ["good night", "bedroom: lamp off", "bedroom: lights off", "bedroom: window closed", "living room: window closed", "thermostat: mode off", "entry: alarm armed"]}}
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example home -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

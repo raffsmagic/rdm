@@ -1,0 +1,21 @@
+$ cargo run -p rdm --example repl -- --help
+repl: A REPL
+The model points at write, a language model writes a function, and it is on the map from then on.
+
+--task   Ask the house
+    1  Bring the heat down to 18 degrees.
+    2  Make it three degrees cooler.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--house   Where the house starts
+    JSON; it starts as {"tv": "off", "lights": "on", "door": "closed", "lock": "locked", "heat": 21}
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example repl -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

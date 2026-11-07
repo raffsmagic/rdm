@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example handbook -- "Is the sky blue?"
+decision model: jev-stand-in | language model: lm-stand-in
+
+Is the sky blue?
+-> the model said the answer is not in this text
+1 requests to the decision model, each a yes or a no

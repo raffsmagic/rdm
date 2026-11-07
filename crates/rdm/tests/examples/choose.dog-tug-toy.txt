@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example choose -- --listing 2
+first choice: Animals & Pet Supplies
+leaf:         Dog Toys
+3 requests. The walk is greedy: one wrong choice near the top is not recovered from.

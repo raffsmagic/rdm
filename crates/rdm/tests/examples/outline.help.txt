@@ -1,0 +1,20 @@
+$ cargo run -p rdm --example outline -- --help
+outline: The shape of an RLM
+RDM calls RDM out to a leaf over an outline held in the program, with no language model anywhere.
+
+--question   Ask the handbook
+    1  Can I work from another country?
+    2  What is the nightly hotel limit in London?
+    3  Who do I tell about a lost laptop?
+    4  How many days of annual leave are there?
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example outline -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

@@ -1,0 +1,7 @@
+$ RDM_POST=1 cargo run -p rdm --example outline -- --question 2
+explored: Handbook
+explored: Expenses
+explored: Travel
+explored: Hotels
+['The nightly limit for accommodation is 180 euros in most cities and 260 euros in London, Zurich and New York. Breakfast is included in that limit.']
+15 requests again, but the largest shows 272 characters of a 2,555-character handbook

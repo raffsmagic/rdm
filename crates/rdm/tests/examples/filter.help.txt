@@ -1,0 +1,20 @@
+$ cargo run -p rdm --example filter -- --help
+filter: Sorting and filtering
+Filter keeps the two likeliest at every level: a beam with no score.
+
+--listing   A product listing
+    1  Cat window shelf: A padded shelf that suction-cups to a window, so a cat can sun itself.
+    2  Dog tug toy: A rope tug toy for large dogs.
+    3  Chef's knife: A chef's knife with a 20 cm blade.
+    4  Sofa: A three-seat sofa in grey fabric.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example filter -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

@@ -1,0 +1,5 @@
+$ cargo run -p rdm --example outline -- "Is the sky blue?"
+
+Is the sky blue?
+-> the model said the handbook does not cover this
+1 requests; the largest shows 331 characters of a 2555 character handbook

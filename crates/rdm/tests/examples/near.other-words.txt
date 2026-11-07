@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example near -- "What a lovely evening."
+pointed at: ['finish']
+open unlocked
+7 texts were given labels, each asked once: the request and the six names

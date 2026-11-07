@@ -1,0 +1,9 @@
+$ cargo run -p rdm --example hierarchy -- --listing=3
+decision model: jev-stand-in
+12378 categories
+All products -> ['Luggage & Bags']
+Luggage & Bags -> ['Backpacks']
+Backpacks -> ['Hiking Backpacks']
+
+1 leaf reached
+Luggage & Bags > Backpacks > Hiking Backpacks

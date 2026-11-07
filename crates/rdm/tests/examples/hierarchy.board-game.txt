@@ -1,0 +1,9 @@
+$ cargo run -p rdm --example hierarchy -- --listing 2
+decision model: jev-stand-in
+12378 categories
+All products -> ['Toys & Games']
+Toys & Games -> ['Games']
+Games -> ['Board Games']
+
+1 leaf reached
+Toys & Games > Games > Board Games

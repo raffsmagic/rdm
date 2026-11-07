@@ -1,0 +1,10 @@
+$ cargo run -p rdm --example starter -- "Movie night!" "Good night, all." "What a lovely evening."
+a map made by ~typesafe/jev-latest and typesafe/jev-router
+  good_night: Run the good night routine: turn off TV and lights, close and lock the door, set heat to 18.
+  movie_time: Turns on the TV and turns off the lights for movie time.
+  good_morning: Run the good morning routine: lights on, unlock door, heat to 21.
+
+Movie night! -> ['movie_time', 'finish']
+Good night, all. -> ['good_night', 'finish']
+What a lovely evening. -> ['finish']
+{'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18}

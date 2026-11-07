@@ -1,0 +1,23 @@
+$ RDM_TRACE=1 cargo run -p rdm --example handbook
+decision model: jev-stand-in | language model: lm-stand-in
+| text: 897 characters, 28 lines
+| laid out: 27 pieces the search could reach
+| 7 requests, ended by final
+| 1. text: '# Expenses\n\nClaims are submitted within 30 days of the purchase, with… (897 characters) | question: 'What is the nightly hotel limit in London?'
+|    look: True (p = 0.93) -> ['260 euros a night in London.']
+|   2. text: '# Expenses\nClaims are submitted within 30 days of the purchase, with a… (307 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|      look: False (p = 0.04)
+|   3. text: 'The nightly limit for accommodation is 180 euros in most cities and 260… (574 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|      look: True (p = 0.93) -> ['260 euros a night in London.']
+|     4. text: 'The nightly limit for accommodation is 180 euros in most cities and 260… (279 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|        look: True (p = 0.93) -> ['260 euros a night in London.']
+|       5. text: 'The nightly limit for accommodation is 180 euros in most cities and 260… (146 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|          look: True (p = 0.93) -> ['260 euros a night in London.']
+|       6. text: '### Ground transport\nUse public transport where it is practical. Taxis… (132 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|          look: False (p = 0.04)
+|     7. text: '## Meals\nWhen travelling, meals are reimbursed up to 45 euros per day.… (294 characters) | question: 'What is the nightly hotel limit in London?' (asked by look)
+|        look: False (p = 0.04)
+
+What is the nightly hotel limit in London?
+-> ['260 euros a night in London.']
+7 requests to the decision model, each a yes or a no

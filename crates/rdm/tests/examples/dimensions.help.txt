@@ -1,0 +1,20 @@
+$ cargo run -p rdm --example dimensions -- --help
+dimensions: A map with dimensions
+Embeddings you can read: each name on the map answers a few questions, and a request is offered the names nearest it.
+
+--email   An email to a support desk
+    1  Charged twice: I got charged twice this month, pls fix asap
+    2  Can't log in: I can't log in, it says my password is wrong.
+    3  Export is broken: The export button does nothing since yesterday.
+    4  Team pricing: What does the team plan cost for twelve people?
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example dimensions -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

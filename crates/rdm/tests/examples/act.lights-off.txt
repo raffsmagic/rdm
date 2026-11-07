@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example act -- --task 2
+{'switch': 'lights: now off'}

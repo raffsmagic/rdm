@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example repl
+pointed at: ['write', 'cool_to_18', 'finish']
+heat: 18
+written: ['cool_to_18']

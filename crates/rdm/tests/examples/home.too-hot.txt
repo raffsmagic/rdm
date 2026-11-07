@@ -1,0 +1,5 @@
+$ cargo run -p rdm --example home -- --task 10
+thermostat: thermostat mode: refused while the bedroom window is open
+bedroom: bedroom window: now closed
+thermostat: thermostat mode: now cool, and the house is heading for 22 degrees
+finish

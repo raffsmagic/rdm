@@ -1,0 +1,5 @@
+$ cargo run -p rdm --example map -- --routine 2
+Lock the front door. -> ['lock locked', 'door closed', 'lock locked', 'finish']
+Movie night: TV on, lights off. -> ['lights off']
+Night! -> ['tv off', 'lights off', 'lock locked', 'door closed', 'lock locked', 'finish']
+{'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked'}

@@ -1,0 +1,8 @@
+$ RDM_POST=1 cargo run -p rdm --example hierarchy -- --listing 4
+All products -> ['Animals & Pet Supplies']
+Animals & Pet Supplies -> ['Pet Supplies']
+Pet Supplies -> ['Cat Supplies', 'Pet Beds']
+Cat Supplies -> ['Cat Furniture']
+Cat Furniture -> ['Cat Window Beds & Perches']
+Pet Beds -> ['Hammocks', 'Pet Cots', 'Pillow Beds', 'Radiator Beds']
+Animals & Pet Supplies > Pet Supplies > Cat Supplies > Cat Furniture > Cat Window Beds & Perches

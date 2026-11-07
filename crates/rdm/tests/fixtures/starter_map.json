@@ -1,0 +1,20 @@
+{
+  "made_by": {
+    "decision_model": "~typesafe/jev-latest",
+    "language_model": "typesafe/jev-router"
+  },
+  "written": {
+    "good_night": {
+      "description": "Run the good night routine: turn off TV and lights, close and lock the door, set heat to 18.",
+      "code": "def good_night():\n    switch(\"tv\", \"off\")\n    switch(\"lights\", \"off\")\n    switch(\"door\", \"closed\")\n    switch(\"lock\", \"locked\")\n    while heat() > 18:\n        cooler()\n    return \"Turned off the TV and lights, closed and locked the door, and set the heat to 18 degrees.\""
+    },
+    "movie_time": {
+      "description": "Turns on the TV and turns off the lights for movie time.",
+      "code": "def movie_time():\n    switch(\"tv\", \"on\")\n    switch(\"lights\", \"off\")\n    return \"Turned the TV on and the lights off.\""
+    },
+    "good_morning": {
+      "description": "Run the good morning routine: lights on, unlock door, heat to 21.",
+      "code": "def good_morning():\n    switch(\"lights\", \"on\")\n    switch(\"lock\", \"unlocked\")\n    while heat() < 21:\n        warmer()\n    return \"Turned the lights on, unlocked the door, and brought the heat up to 21 degrees.\""
+    }
+  }
+}

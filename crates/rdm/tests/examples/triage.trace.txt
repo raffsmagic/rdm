@@ -1,0 +1,9 @@
+$ RDM_TRACE=1 cargo run -p rdm --example triage
+| 1 request, ended by final
+| 1. message: 'I was charged twice for the same order and nobody answers my emails. I … (94 characters)
+|    refund: True (p = 0.93) -> 'refund opened with billing'
+|    team: 'billing' (p = 0.95)
+|    upset: True (p = 0.93)
+refund: True (p = 0.93)
+upset:  True (p = 0.93)
+{'refund': 'refund opened with billing'}

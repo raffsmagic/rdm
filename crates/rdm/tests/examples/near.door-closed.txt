@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example near -- --house '{"tv": "off", "lights": "on", "door": "closed", "lock": "unlocked"}'
+pointed at: ['lock locked', 'finish']
+closed locked
+7 texts were given labels, each asked once: the request and the six names

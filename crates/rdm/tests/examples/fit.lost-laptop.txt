@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example fit -- --question=3
+Who do I tell about a lost laptop?
+stated in the handbook: True (p = 0.93)
+15 requests, none showing more than 900 characters of the 2555

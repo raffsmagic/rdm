@@ -1,0 +1,21 @@
+$ cargo run -p rdm --example hierarchy -- --help
+hierarchy: Hierarchical search
+A walk down Shopify's product taxonomy, following every category at least half as likely as the likeliest.
+
+--listing   A product listing
+    1  Laptop backpack: Laptop backpack with a padded sleeve, 20 litres.
+    2  Board game: A board game for families: a strategy game for 2 to 4 players.
+    3  Hiking backpack: Hiking backpack, 40 litres, with a rain cover.
+    4  Cat window perch: Furniture listing: a wall-mounted window shelf bed. This padded floating shelf uses suction cups and a washable cushion as a sunny perch for one cat.
+    5  Headphones: Wireless over-ear headphones with active noise cancelling, 30 hours of battery and a folding case.
+    A number picks one of these, and anything else is the text itself. It starts as 1.
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example hierarchy -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

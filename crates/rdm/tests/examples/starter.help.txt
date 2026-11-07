@@ -1,0 +1,24 @@
+$ cargo run -p rdm --example starter -- --help
+starter: A starter map
+The saved routines are on the map from the first request: the model has only to point.
+
+--tasks   Ask the house, one request per line
+    Let's watch a film.
+    We are off to bed.
+    Morning!
+    Given once for each line; it starts as these.
+
+--house   Where the house starts
+    JSON; it starts as {"tv": "on", "lights": "on", "door": "open", "lock": "unlocked", "heat": 21}
+
+--map   The map to load, by its path, where it is not starter_map.json
+
+--trace   Show the run as the site does: every request, under the one whose tool made it (or RDM_TRACE=1).
+
+An input can also be given without its name, in the order above:
+    cargo run -p rdm --example starter -- "..."
+
+The models are chosen by the environment (crates/rdm/examples/README.md):
+    RDM_DECISION_MODEL   standin | typesafe | openrouter | local | <url> | gateway:<registry.json> | lm
+    RDM_LANGUAGE_MODEL   standin | <an lm15 model, as openrouter:typesafe/jev-router> | <url>
+With neither set and no key in the environment, both are stand-ins and nothing leaves this machine.

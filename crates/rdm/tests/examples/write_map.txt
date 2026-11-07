@@ -1,0 +1,9 @@
+$ cargo run -p rdm --example write_map
+Good night -> ['write', 'good_night', 'finish']
+Movie time -> ['write', 'movie_time', 'finish']
+Good morning -> ['write', 'good_morning', 'finish']
+
+good_night: Run the good night routine: turn off TV and lights, close and lock the door, set heat to 18.
+movie_time: Turns on the TV and turns off the lights for movie time.
+good_morning: Run the good morning routine: lights on, unlock door, heat to 21.
+saved as starter_map.json: "a starter map" loads it for the rest of this session

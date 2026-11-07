@@ -1,0 +1,42 @@
+$ RDM_TRACE=1 cargo run -p rdm --example outline -- --question 2
+| text: 2555 characters, 71 lines
+| laid out: 37 pieces the search could reach
+explored: Handbook
+explored: Expenses
+explored: Travel
+explored: Hotels
+| 15 requests, ended by final
+| 1. entry: 'Handbook' | contains: ['Time off', 'Annual leave', 'Sick leave', 'Parental leave', 'Expenses',… (18 items) | question: 'What is the nightly hotel limit in London?'
+|    explore: True (p = 0.93) -> ['The nightly limit for accommodation is 180 euros in most cities and 26… (1 items)
+|   2. entry: 'This handbook is synthetic. It exists to give the example something to … (80 characters) | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|      explore: False (p = 0.04)
+|   3. entry: 'Time off' | contains: ['Annual leave', 'Sick leave', 'Parental leave'] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|      explore: False (p = 0.04)
+|   4. entry: 'Expenses' | contains: ['Travel', 'Flights', 'Hotels', 'Ground transport', 'Meals', 'Equipment'… (6 items) | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|      explore: True (p = 0.93) -> ['The nightly limit for accommodation is 180 euros in most cities and 26… (1 items)
+|     5. entry: 'Claims are submitted within 30 days of the purchase, with an itemized r… (78 characters) | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|        explore: False (p = 0.04)
+|     6. entry: 'Travel' | contains: ['Flights', 'Hotels', 'Ground transport'] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|        explore: True (p = 0.93) -> ['The nightly limit for accommodation is 180 euros in most cities and 26… (1 items)
+|       7. entry: 'Book travel through the company portal so that it is covered by the gro… (84 characters) | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|          explore: False (p = 0.04)
+|       8. entry: 'Flights' | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|          explore: False (p = 0.04)
+|       9. entry: 'Hotels' | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|          explore: True (p = 0.93) -> ['The nightly limit for accommodation is 180 euros in most cities and 26… (1 items)
+|         10. entry: 'The nightly limit for accommodation is 180 euros in most cities and 260… (146 characters) | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|             explore: True (p = 0.93) -> ['The nightly limit for accommodation is 180 euros in most cities and 26… (1 items)
+|       11. entry: 'Ground transport' | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|           explore: False (p = 0.04)
+|     12. entry: 'Meals' | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|         explore: False (p = 0.04)
+|     13. entry: 'Equipment' | contains: [] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|         explore: False (p = 0.04)
+|   14. entry: 'Security' | contains: ['Passwords', 'Devices', 'Reporting an incident'] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|       explore: False (p = 0.04)
+|   15. entry: 'Working remotely' | contains: ['Eligibility', 'Working from abroad'] | question: 'What is the nightly hotel limit in London?' (asked by explore)
+|       explore: False (p = 0.04)
+
+What is the nightly hotel limit in London?
+-> ['The nightly limit for accommodation is 180 euros in most cities and 260 euros in London, Zurich and New York. Breakfast is included in that limit.']
+15 requests; the largest shows 357 characters of a 2555 character handbook

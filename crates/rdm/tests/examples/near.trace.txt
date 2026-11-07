@@ -1,0 +1,45 @@
+$ RDM_TRACE=1 cargo run -p rdm --example near
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Lock the front door.)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (lock: refused, the door is open)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked'} (door: now closed)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked'} (lock: now locked)
+| 11 requests, ended by final
+| 1. task: 'Lock the front door.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: ''
+|    next: 'lock locked' (p = 0.95) -> 'lock: refused, the door is open'
+|   2. task: 'Lock the front door.'
+|      screen: False (p = 0.04)
+|      light: False (p = 0.04)
+|      entry: True (p = 0.93)
+|   3. task: 'tv on: Set the tv to on.'
+|      screen: True (p = 0.93)
+|      light: False (p = 0.04)
+|      entry: False (p = 0.04)
+|   4. task: 'tv off: Set the tv to off.'
+|      screen: True (p = 0.93)
+|      light: False (p = 0.04)
+|      entry: False (p = 0.04)
+|   5. task: 'lights on: Set the lights to on.'
+|      screen: False (p = 0.04)
+|      light: True (p = 0.93)
+|      entry: False (p = 0.04)
+|   6. task: 'lights off: Set the lights to off.'
+|      screen: False (p = 0.04)
+|      light: True (p = 0.93)
+|      entry: False (p = 0.04)
+|   7. task: 'door closed: Set the door to closed.'
+|      screen: False (p = 0.04)
+|      light: False (p = 0.04)
+|      entry: True (p = 0.93)
+|   8. task: 'lock locked: Set the lock to locked.'
+|      screen: False (p = 0.04)
+|      light: False (p = 0.04)
+|      entry: True (p = 0.93)
+| 9. task: 'Lock the front door.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} | observation: 'lock: refused, the door is open' (turn 2)
+|    next: 'door closed' (p = 0.95) -> 'door: now closed'
+| 10. task: 'Lock the front door.' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked'} | observation: 'door: now closed' (turn 3)
+|     next: 'lock locked' (p = 0.95) -> 'lock: now locked'
+| 11. task: 'Lock the front door.' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked'} | observation: 'lock: now locked' (turn 4)
+|     next: 'finish' (p = 0.95)
+pointed at: ['lock locked', 'door closed', 'lock locked', 'finish']
+closed locked
+7 texts were given labels, each asked once: the request and the six names

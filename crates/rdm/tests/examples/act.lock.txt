@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example act -- "Lock the front door." --house '{"tv": "off", "lights": "on", "door": "closed", "lock": "unlocked"}'
+{'switch': 'lock: now locked'}

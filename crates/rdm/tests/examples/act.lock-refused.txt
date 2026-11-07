@@ -1,0 +1,2 @@
+$ cargo run -p rdm --example act -- "Lock the front door."
+{'switch': 'lock: refused, the door is open'}

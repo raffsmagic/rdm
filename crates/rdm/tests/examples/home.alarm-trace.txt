@@ -1,0 +1,85 @@
+$ cargo run -p rdm --example home -- --trace "Set the alarm."
+| house: {'entry': {'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (Set the alarm.)
+| house: {'entry': {'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the front door is not locked)
+| house: {'entry': {'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry lock: refused while the door is open)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry door: now closed)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the front door is not locked)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the front door is not locked)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry lock: now locked)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'open', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the garage door is open)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (garage door: now closed)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'on', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the oven is on)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'off', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (kitchen oven: now off)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'off', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'open'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: refused while the bedroom window is open)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'off'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'off', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'closed'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (bedroom window: now closed)
+| house: {'entry': {'lights': 'on', 'door': 'closed', 'lock': 'locked', 'alarm': 'armed'}, 'living room': {'lights': 'on', 'tv': 'off', 'fan': 'on', 'window': 'closed'}, 'kitchen': {'lights': 'on', 'oven': 'off', 'coffee maker': 'off', 'dishwasher': 'on'}, 'bedroom': {'lights': 'off', 'lamp': 'on', 'window': 'closed'}, 'bathroom': {'lights': 'off', 'fan': 'off'}, 'garage': {'lights': 'on', 'door': 'closed', 'doorway': 'clear', 'washer': 'off', 'dryer': 'on'}, 'thermostat': {'mode': 'off', 'target': 22, 'temp': 28, 'outside': 28}} (entry alarm: now armed)
+| 30 requests, ended by repeat
+| 1. task: 'Set the alarm.' | observation: ''
+|    next: 'entry' (p = 0.95) -> 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters)
+|   2. task: 'Set the alarm.' | before: '' | observation: '' (asked by entry)
+|      next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the front door is not locked'
+|   3. task: 'Set the alarm.' | before: '' | observation: 'entry alarm: refused while the front door is not locked' (turn 2)
+|      next: 'lock locked' (p = 0.95) -> 'entry lock: refused while the door is open'
+|   4. task: 'Set the alarm.' | before: '' | observation: 'entry lock: refused while the door is open' (turn 3)
+|      next: 'door closed' (p = 0.95) -> 'entry door: now closed'
+|   5. task: 'Set the alarm.' | before: '' | observation: 'entry door: now closed' (turn 4)
+|      next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the front door is not locked'
+|   6. task: 'Set the alarm.' | before: '' | observation: 'entry alarm: refused while the front door is not locked' (turn 5) (a repeat: answered as before, and nothing run)
+|      next: 'lock locked' (p = 0.95)
+| 7. task: 'Set the alarm.' | observation: 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters) (turn 2)
+|    next: 'entry' (p = 0.95) -> 'entry alarm: refused while the front door is not locked; entry lock: no… (131 characters)
+|   8. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters) | observation: '' (asked by entry)
+|      next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the front door is not locked'
+|   9. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters) | observation: 'entry alarm: refused while the front door is not locked' (turn 2)
+|      next: 'lock locked' (p = 0.95) -> 'entry lock: now locked'
+|   10. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters) | observation: 'entry lock: now locked' (turn 3)
+|       next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the garage door is open'
+|   11. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: re… (123 characters) | observation: 'entry alarm: refused while the garage door is open' (turn 4)
+|       next: 'finish' (p = 0.95)
+| 12. task: 'Set the alarm.' | observation: 'entry alarm: refused while the front door is not locked; entry lock: no… (131 characters) (turn 3)
+|     next: 'garage' (p = 0.95) -> 'garage door: now closed'
+|   13. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: no… (131 characters) | observation: '' (asked by garage)
+|       next: 'door closed' (p = 0.95) -> 'garage door: now closed'
+|   14. task: 'Set the alarm.' | before: 'entry alarm: refused while the front door is not locked; entry lock: no… (131 characters) | observation: 'garage door: now closed' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 15. task: 'Set the alarm.' | observation: 'garage door: now closed' (turn 4)
+|     next: 'entry' (p = 0.95) -> 'entry alarm: refused while the oven is on'
+|   16. task: 'Set the alarm.' | before: 'garage door: now closed' | observation: '' (asked by entry)
+|       next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the oven is on'
+|   17. task: 'Set the alarm.' | before: 'garage door: now closed' | observation: 'entry alarm: refused while the oven is on' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 18. task: 'Set the alarm.' | observation: 'entry alarm: refused while the oven is on' (turn 5)
+|     next: 'kitchen' (p = 0.95) -> 'kitchen oven: now off'
+|   19. task: 'Set the alarm.' | before: 'entry alarm: refused while the oven is on' | observation: '' (asked by kitchen)
+|       next: 'oven off' (p = 0.95) -> 'kitchen oven: now off'
+|   20. task: 'Set the alarm.' | before: 'entry alarm: refused while the oven is on' | observation: 'kitchen oven: now off' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 21. task: 'Set the alarm.' | observation: 'kitchen oven: now off' (turn 6)
+|     next: 'entry' (p = 0.95) -> 'entry alarm: refused while the bedroom window is open'
+|   22. task: 'Set the alarm.' | before: 'kitchen oven: now off' | observation: '' (asked by entry)
+|       next: 'alarm armed' (p = 0.95) -> 'entry alarm: refused while the bedroom window is open'
+|   23. task: 'Set the alarm.' | before: 'kitchen oven: now off' | observation: 'entry alarm: refused while the bedroom window is open' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 24. task: 'Set the alarm.' | observation: 'entry alarm: refused while the bedroom window is open' (turn 7)
+|     next: 'bedroom' (p = 0.95) -> 'bedroom window: now closed'
+|   25. task: 'Set the alarm.' | before: 'entry alarm: refused while the bedroom window is open' | observation: '' (asked by bedroom)
+|       next: 'window closed' (p = 0.95) -> 'bedroom window: now closed'
+|   26. task: 'Set the alarm.' | before: 'entry alarm: refused while the bedroom window is open' | observation: 'bedroom window: now closed' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 27. task: 'Set the alarm.' | observation: 'bedroom window: now closed' (turn 8)
+|     next: 'entry' (p = 0.95) -> 'entry alarm: now armed'
+|   28. task: 'Set the alarm.' | before: 'bedroom window: now closed' | observation: '' (asked by entry)
+|       next: 'alarm armed' (p = 0.95) -> 'entry alarm: now armed'
+|   29. task: 'Set the alarm.' | before: 'bedroom window: now closed' | observation: 'entry alarm: now armed' (turn 2)
+|       next: 'finish' (p = 0.95)
+| 30. task: 'Set the alarm.' | observation: 'entry alarm: now armed' (turn 9)
+|     next: 'finish' (p = 0.95)
+entry: entry alarm: refused while the front door is not locked; entry lock: refused while the door is open; entry door: now closed
+entry: entry alarm: refused while the front door is not locked; entry lock: now locked; entry alarm: refused while the garage door is open
+garage: garage door: now closed
+entry: entry alarm: refused while the oven is on
+kitchen: kitchen oven: now off
+entry: entry alarm: refused while the bedroom window is open
+bedroom: bedroom window: now closed
+entry: entry alarm: now armed
+finish

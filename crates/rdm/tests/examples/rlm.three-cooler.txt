@@ -1,0 +1,6 @@
+$ cargo run -p rdm --example rlm -- --task 2
+pointed at: ['write', 'cool_by_three_degrees', 'finish']
+steps the writer took: 2
+heat while it was tried: [15]
+heat: 21 -> 18
+written: ['cool_by_three_degrees']

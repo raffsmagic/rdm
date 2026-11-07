@@ -1,0 +1,9 @@
+$ cargo run -p rdm --example act -- --trace "Lock the front door."
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (Lock the front door.)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'} (lock: refused, the door is open)
+| 1 request, ended by final
+| 1. task: 'Lock the front door.' | house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked'}
+|    switch: True (p = 0.93) -> 'lock: refused, the door is open'
+|    device: 'lock' (p = 0.95)
+|    to: 'locked' (p = 0.95)
+{'switch': 'lock: refused, the door is open'}

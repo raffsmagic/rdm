@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example home -- --task 4 --house '{"entry": {"lights": "on", "door": "open", "lock": "unlocked", "alarm": "off"}, "living room": {"lights": "on", "tv": "off", "fan": "on", "window": "closed"}, "kitchen": {"lights": "on", "oven": "on", "coffee maker": "off", "dishwasher": "on"}, "bedroom": {"lights": "off", "lamp": "on", "window": "open"}, "bathroom": {"lights": "off", "fan": "off"}, "garage": {"lights": "on", "door": "open", "doorway": "blocked", "washer": "off", "dryer": "on"}, "thermostat": {"mode": "off", "target": 22, "temp": 28, "outside": 28}}'
+garage: garage door: refused while something is in the doorway
+finish

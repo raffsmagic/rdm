@@ -1,0 +1,27 @@
+[package]
+name = "rdm-wasm"
+description = "A module with nothing under it: an RDM built for wasm32-unknown-unknown, and the JavaScript that hosts it and carries its requests."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme = "README.md"
+publish.workspace = true
+
+[lib]
+# A module to be instantiated by a host, with no `main` to start it.
+crate-type = ["cdylib"]
+# There is nothing in it but for WebAssembly, and so nothing to test or to document.
+test = false
+doctest = false
+doc = false
+
+[dependencies]
+# The core alone: no helper, no language model, no sandbox, and so no C and no JavaScript glue.
+rdm = { workspace = true, default-features = false }
+# The client, for what it does with a request and a response. The network is the host's.
+one-system = { workspace = true, default-features = false }
+serde_json.workspace = true

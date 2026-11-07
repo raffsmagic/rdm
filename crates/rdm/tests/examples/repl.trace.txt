@@ -1,0 +1,15 @@
+$ RDM_TRACE=1 cargo run -p rdm --example repl
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 21} (Bring the heat down to 18 degrees.)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 20} (heat: now 20)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 19} (heat: now 19)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 18} (heat: now 18)
+| 3 requests, ended by final
+| 1. task: 'Bring the heat down to 18 degrees.' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: ''
+|    next: 'write' (p = 0.95) -> '`cool_to_18` was written and is now on the list. It has not been run, s… (150 characters)
+| 2. task: 'Bring the heat down to 18 degrees.' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: '`cool_to_18` was written and is now on the list. It has not been run, s… (150 characters) (turn 2)
+|    next: 'cool_to_18' (p = 0.95) -> 'it is 18 degrees'
+| 3. task: 'Bring the heat down to 18 degrees.' | house: {'tv': 'off', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: 'it is 18 degrees' (turn 3)
+|    next: 'finish' (p = 0.95)
+pointed at: ['write', 'cool_to_18', 'finish']
+heat: 18
+written: ['cool_to_18']

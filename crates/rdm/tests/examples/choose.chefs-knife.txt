@@ -1,0 +1,4 @@
+$ cargo run -p rdm --example choose -- --listing=3
+first choice: Kitchen
+leaf:         Kitchen Knives
+2 requests. The walk is greedy: one wrong choice near the top is not recovered from.

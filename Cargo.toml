@@ -1,0 +1,31 @@
+[workspace]
+resolver = "3"
+members = ["crates/systemone", "crates/one-system", "crates/rdm", "crates/rdm-wasm"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+license = "MIT"
+authors = ["Raymond Weitekamp"]
+repository = "https://github.com/rawwerks/rdm"
+homepage = "https://recursivedecisionmodels.com"
+# Not on crates.io until its names are settled: `rdm` and `systemone` are taken there.
+publish = false
+
+[workspace.dependencies]
+systemone = { path = "crates/systemone" }
+one-system = { path = "crates/one-system" }
+rdm = { path = "crates/rdm" }
+serde = { version = "1", features = ["derive"] }
+# preserve_order: the options of a choice are shown to the model in the order they were
+# declared, and a request's inputs in the order they were given.
+serde_json = { version = "1", features = ["preserve_order"] }
+indexmap = { version = "2", features = ["serde"] }
+sha2 = "0.10"
+
+# The dependencies are built without debug info. With it, lm15 and monty made every example
+# and every test binary a quarter of a gigabyte, and one build ten gigabytes. The three crates
+# here keep theirs; a backtrace through a dependency has names and no line numbers.
+[profile.dev.package."*"]
+debug = false

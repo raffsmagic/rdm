@@ -1,0 +1,16 @@
+categories.txt is Shopify's product taxonomy, version 2026-02, in English, as its repository
+distributes it:
+
+    https://raw.githubusercontent.com/Shopify/product-taxonomy/v2026-02/dist/en/categories.txt
+
+That is dist/en/categories.txt of https://github.com/Shopify/product-taxonomy at the tag v2026-02.
+The file here is unchanged: 12,381 lines, of which the first three are a heading and the rest
+are one category each, 12,378 of them; 1,745,616 bytes;
+sha256 79360252b99cc26dc2103a177c33ad40e635302f9a0b837053f99806347d8b8b.
+It was fetched again and found the same on 2026-10-05.
+
+Licence: MIT, copyright (c) Shopify. categories.LICENSE, beside this file, is the repository's
+LICENSE at the same tag.
+
+The `hierarchy` cell of the site fetches this file each time it runs. The example
+(../hierarchy.rs) reads the copy here, so that no run needs the network for it.

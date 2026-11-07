@@ -1,0 +1,47 @@
+$ RDM_TRACE=1 cargo run -p rdm --example write_map
+| house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (Good night: turn the TV and the lights off, close the door and lock it, and bring the heat down to 18 degrees.)
+| house: {'tv': 'off', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (tv: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'open', 'lock': 'unlocked', 'heat': 21} (lights: now off)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'unlocked', 'heat': 21} (door: now closed)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 21} (lock: now locked)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 20} (heat: now 20)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 19} (heat: now 19)
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (heat: now 18)
+| 3 requests, ended by final
+| 1. task: 'Good night: turn the TV and the lights off, close the door and lock it,… (110 characters) | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat':… | observation: ''
+|    next: 'write' (p = 0.95) -> '`good_night` was written and is now on the list. It has not been run, s… (204 characters)
+| 2. task: 'Good night: turn the TV and the lights off, close the door and lock it,… (110 characters) | house: {'tv': 'on', 'lights': 'on', 'door': 'open', 'lock': 'unlocked', 'heat':… | observation: '`good_night` was written and is now on the list. It has not been run, s… (204 characters) (turn 2)
+|    next: 'good_night' (p = 0.95) -> 'Turned off the TV and lights, closed and locked the door, and set the h… (89 characters)
+| 3. task: 'Good night: turn the TV and the lights off, close the door and lock it,… (110 characters) | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat… | observation: 'Turned off the TV and lights, closed and locked the door, and set the h… (89 characters) (turn 3)
+|    next: 'finish' (p = 0.95)
+Good night -> ['write', 'good_night', 'finish']
+| house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (Movie time: turn the TV on and the lights off.)
+| house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (tv: now on)
+| house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (lights: now off)
+| 3 requests, ended by final
+| 1. task: 'Movie time: turn the TV on and the lights off.' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat… | observation: ''
+|    next: 'write' (p = 0.95) -> '`movie_time` was written and is now on the list. It has not been run, s… (168 characters)
+| 2. task: 'Movie time: turn the TV on and the lights off.' | house: {'tv': 'off', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat… | observation: '`movie_time` was written and is now on the list. It has not been run, s… (168 characters) (turn 2)
+|    next: 'movie_time' (p = 0.95) -> 'Turned the TV on and the lights off.'
+| 3. task: 'Movie time: turn the TV on and the lights off.' | house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: 'Turned the TV on and the lights off.' (turn 3)
+|    next: 'finish' (p = 0.95)
+Movie time -> ['write', 'movie_time', 'finish']
+| house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat': 18} (Good morning: turn the lights on, unlock the door, and bring the heat up to 21 degrees.)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'locked', 'heat': 18} (lights: now on)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 18} (lock: now unlocked)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 19} (heat: now 19)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 20} (heat: now 20)
+| house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat': 21} (heat: now 21)
+| 3 requests, ended by final
+| 1. task: 'Good morning: turn the lights on, unlock the door, and bring the heat u… (87 characters) | house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: ''
+|    next: 'write' (p = 0.95) -> '`good_morning` was written and is now on the list. It has not been run,… (179 characters)
+| 2. task: 'Good morning: turn the lights on, unlock the door, and bring the heat u… (87 characters) | house: {'tv': 'on', 'lights': 'off', 'door': 'closed', 'lock': 'locked', 'heat'… | observation: '`good_morning` was written and is now on the list. It has not been run,… (179 characters) (turn 2)
+|    next: 'good_morning' (p = 0.95) -> 'Turned the lights on, unlocked the door, and brought the heat up to 21 … (79 characters)
+| 3. task: 'Good morning: turn the lights on, unlock the door, and bring the heat u… (87 characters) | house: {'tv': 'on', 'lights': 'on', 'door': 'closed', 'lock': 'unlocked', 'heat… | observation: 'Turned the lights on, unlocked the door, and brought the heat up to 21 … (79 characters) (turn 3)
+|    next: 'finish' (p = 0.95)
+Good morning -> ['write', 'good_morning', 'finish']
+
+good_night: Run the good night routine: turn off TV and lights, close and lock the door, set heat to 18.
+movie_time: Turns on the TV and turns off the lights for movie time.
+good_morning: Run the good morning routine: lights on, unlock door, heat to 21.
+saved as starter_map.json: "a starter map" loads it for the rest of this session

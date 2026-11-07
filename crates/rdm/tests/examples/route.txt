@@ -1,0 +1,3 @@
+$ cargo run -p rdm --example route
+{'tv': 'on', 'lights': 'off', 'door': 'open', 'lock': 'unlocked'}
+final

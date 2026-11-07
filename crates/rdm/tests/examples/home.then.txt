@@ -1,0 +1,12 @@
+$ cargo run -p rdm --example home -- --task 5 --then 2 --then "Let's watch a film."
+We are leaving for the weekend.
+leaving: leaving: done (good night: done (living room tv: already off; living room fan: now off; living room lights: now off; kitchen oven: now off; kitchen coffee maker: already off; kitchen dishwasher: now off; kitchen lights: now off; bathroom fan: already off; bathroom lights: already off; garage washer: already off; garage dryer: now off; garage lights: now off; garage door: now closed; entry lights: now off; entry door: now closed; entry lock: now locked); bedroom lamp: now off; bedroom lights: already off; bedroom window: now closed; living room window: already closed; thermostat mode: already off; entry alarm: now armed)
+finish
+
+Morning!
+good morning: good morning: done (entry alarm: now off; entry lock: now unlocked; kitchen lights: now on; kitchen coffee maker: now on)
+finish
+
+Let's watch a film.
+movie time: movie time: done (living room tv: now on; living room lights: already off)
+finish
