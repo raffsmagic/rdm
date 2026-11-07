@@ -414,6 +414,10 @@ Where Rust and Python part ways, on purpose:
 - **`Fit` measures a part as it is sent**, as JSON, so no request is over its limit. Python
   measures the raw text, and a part can come out longer than was allowed. On the reference
   page's own example this asks 41 requests where Python asks 36.
+- **Arbitration is Rust's alone.** `Rdm::arbiter` and `Arbitrate` (see [Arbitration](#arbitration))
+  have no counterpart in `dspy.experimental.RDM`: there the tools one request selects run at
+  once, and it waits for all of them and uses all of them, as a module here with no arbiter
+  does. So no request a ruling asks is one the Python sends.
 
 The requests themselves are the same. For the notebook cells, the Rust examples were run beside
 the Python cells on the same rules, and the decision requests they send are byte for byte the
