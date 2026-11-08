@@ -506,7 +506,10 @@ cargo test --workspace  # every test, and every example beside its transcript, o
 
 CI runs the same on every push: `cargo fmt --check`, clippy with warnings denied on the machine
 and on both WASI targets, the tests on the machine and as WebAssembly, and a build of
-`rdm-wasm` ([.github/workflows/ci.yml](.github/workflows/ci.yml)).
+`rdm-wasm` ([.github/workflows/ci.yml](.github/workflows/ci.yml)). It also runs
+[gitleaks](https://github.com/gitleaks/gitleaks) over every commit, looking for secrets. To run
+it before each commit, `pre-commit install` once ([pre-commit](https://pre-commit.com)); the
+test keys that only look like keys are listed in `.gitleaks.toml`.
 
 The gateway's server is the binary `one-system`, configured from the environment;
 [its README](crates/one-system/README.md) says how to run it in front of local Laya and hosted Jev.

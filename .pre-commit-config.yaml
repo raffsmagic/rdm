@@ -1,0 +1,7 @@
+# Before each commit, gitleaks looks at what is staged for anything that looks like a secret
+# (.gitleaks.toml says which test keys are not). `pre-commit install` once turns it on.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks

@@ -1,0 +1,17 @@
+# gitleaks, run on every commit (.pre-commit-config.yaml) and in CI: gitleaks's own rules, and
+# the test keys below, which are written to look like keys so that the tests can check none
+# is ever shown. Each pattern must match a found secret whole, so a real key that only begins
+# the same way is still reported.
+title = "rdm"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Test keys that are not keys"
+regexTarget = "secret"
+regexes = [
+  '''^sk-(?:1|ant-test|for-elsewhere|for-tests|hosted|inline|local|local-backend-key|no-key-required|secret|secret-1|secret-0123456789|test|upstream)$''',
+  '''^sk-live-0123456789[A-Za-z0-9_-]*$''',
+  '''^sk-test-SECRET-0123456[A-Za-z0-9_-]*$''',
+]
