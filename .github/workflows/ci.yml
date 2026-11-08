@@ -21,20 +21,6 @@ env:
   CARGO_INCREMENTAL: 0
 
 jobs:
-  secrets:
-    name: gitleaks
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          # Every commit, not only the last: a secret removed later is still in the history.
-          fetch-depth: 0
-      # The same rules as the pre-commit hook (.gitleaks.toml).
-      - uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   native:
     name: fmt, clippy and tests
     runs-on: ubuntu-latest

@@ -1,0 +1,32 @@
+# gitleaks, with the rules of the pre-commit hook (.gitleaks.toml). A push or a pull request is
+# scanned for the commits it brings; once a week, and when run by hand, the whole history is.
+name: gitleaks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The version the pre-commit hook runs, which reads .gitleaks.toml's `[[allowlists]]`.
+          GITLEAKS_VERSION: 8.30.1
