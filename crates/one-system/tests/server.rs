@@ -72,6 +72,9 @@ fn a_caller_slow_to_send_holds_up_nobody_else() {
         )
         .unwrap();
         stalled.push(stream);
+        // One at a time, as callers come: tiny_http's pool can queue a connection that arrives
+        // in the same instant as the one before, behind a thread these callers then hold.
+        std::thread::sleep(std::time::Duration::from_millis(10));
     }
     // Those without the key have been told so already, body or no body.
     stalled[1].set_read_timeout(Some(std::time::Duration::from_secs(10))).unwrap();

@@ -282,7 +282,10 @@ fn log_route(route: &Route, status: u16, took: Duration) {
 /// Each request is answered on a thread of its own, so one that waits on a slow backend, or
 /// on a caller slow to send, holds up no other. It is a small server all the same, for this
 /// machine or a network that is trusted: it sets no time limit on a caller and no bound on
-/// how many it serves at once. Put something sturdier in front of it before the open internet.
+/// how many it serves at once. A burst of callers that connect in the same instant and then
+/// send nothing can, rarely, hold up the one after them, since tiny_http's pool may queue a
+/// connection behind a thread they hold. Put something sturdier in front of it before the
+/// open internet.
 ///
 /// ```no_run
 /// use one_system::{Gateway, Server};
