@@ -25,7 +25,7 @@ read from the variable that holds it, by the client, when it asks.
 | with stand-ins, and no network | nothing, if no key is in the environment. Or `RDM_DECISION_MODEL=standin RDM_LANGUAGE_MODEL=standin` |
 | against hosted Jev | `RDM_DECISION_MODEL=typesafe`, with the key in `TYPESAFE_API_KEY` (`typesafe:jev-latest` names the model) |
 | against OpenRouter | `RDM_DECISION_MODEL=openrouter`, with the key in `OPENROUTER_API_KEY`. The language model is then `openrouter:typesafe/jev-router`, as in the site's hosted mode |
-| against a server on this machine | `RDM_DECISION_MODEL=local` for `http://127.0.0.1:8080`, where `llama-server -hf ggml-org/Laya-GGUF` listens, or the server's URL |
+| against a server on this machine | `RDM_DECISION_MODEL=local` for `http://127.0.0.1:8080`, where `llama-server -hf ggml-org/Laya-GGUF -b 2048 -ub 2048` listens, or the server's URL. The batch size is for the longest request: at the default of 512 tokens, the handbook with `RDM_POST=1` (730 tokens) is refused |
 | through a gateway | `RDM_DECISION_MODEL=gateway:backends.json`, a [one-system](../../one-system) registry file. Its backends' keys are read from the variables the file names |
 | through a gateway that is served | its URL, with `RDM_DECISION_MODEL_NAME` the gateway's name and `RDM_DECISION_MODEL_KEY` the name of the variable its key is in |
 | with no decision model at all | `RDM_DECISION_MODEL=lm`: the language model answers the decision questions. It has to be a real one: a stand-in for a language model cannot decide |

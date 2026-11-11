@@ -132,7 +132,7 @@ download), served by [llama.cpp](https://github.com/ggml-org/llama.cpp) through 
 One API:
 
 ```sh
-llama-server -hf ggml-org/Laya-GGUF          # listens on 127.0.0.1:8080
+llama-server -hf ggml-org/Laya-GGUF -b 2048 -ub 2048   # listens on 127.0.0.1:8080
 RDM_DECISION_MODEL=local cargo run -p rdm --example home -- "It is too hot in here."
 ```
 
